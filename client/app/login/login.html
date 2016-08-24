@@ -1,0 +1,15 @@
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <p class="lead">Enter your credentials</p>
+  </div>
+</header>
+<div class="login form-group">
+  <form name="loginForm" ng-submit="$ctrl.sendLogin()">
+    <div>
+      <input title="name" ng-model="login.name" type="text" placeholder="Name"/>
+    </div>
+    <div>
+      <input title="pin" ng-model="login.pin" type="password" placeholder="PIN" />
+    </div>
+  </form>
+</div>
