@@ -60,3 +60,9 @@ function handleError(res, statusCode) {
   };
 }
 
+export function index(req, res) {
+  Promise.props({
+    teacher: Teacher.find({})
+    //TODO FINISH
+  })
+}
