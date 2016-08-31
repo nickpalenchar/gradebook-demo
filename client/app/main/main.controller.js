@@ -1,36 +1,41 @@
 'use strict';
 
-(function() {
+(function () {
 
-class MainController {
+  console.warn("running in development mode");
 
-  constructor($http) {
-    this.$http = $http;
-    this.awesomeThings = [];
-  }
+  class MainController {
 
-  $onInit() {
-    this.$http.get('/api/students').then(response => {
-      this.awesomeThings = response.data;
-    });
-  }
+    constructor($http) {
+      this.$http = $http;
+      this.awesomeThings = [];
+    }
 
-  addThing() {
-    if (this.newThing) {
-      this.$http.post('/api/things', { name: this.newThing });
-      this.newThing = '';
+    $onInit() {
+      console.log("getting students from /api/students");
+      this.$http.get('/api/students').then(response => {
+        this.awesomeThings = response.data;
+      });
+    }
+
+    addThing() {
+      if (this.newThing) {
+        this.$http.post('/api/things', {name: this.newThing});
+        this.newThing = '';
+      }
+    }
+
+    deleteThing(thing) {
+      this.$http.delete('/api/things/' + thing._id);
     }
   }
 
-  deleteThing(thing) {
-    this.$http.delete('/api/things/' + thing._id);
-  }
-}
+  angular.module('gradebookDemoApp')
+    .component('main', {
+      templateUrl: 'app/main/main.html',
+      controller: MainController
+    });
 
-angular.module('gradebookDemoApp')
-  .component('main', {
-    templateUrl: 'app/main/main.html',
-    controller: MainController
-  });
+  console.log("module gradebookDemoApp successfully loaded.");
 
 })();
