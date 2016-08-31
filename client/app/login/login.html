@@ -4,12 +4,12 @@
   </div>
 </header>
 <div class="login form-group">
-  <form name="loginForm" ng-submit="$ctrl.sendLogin()">
-    <div>
-      <input title="name" ng-model="login.name" type="text" placeholder="Name"/>
-    </div>
-    <div>
-      <input title="pin" ng-model="login.pin" type="password" placeholder="PIN" />
-    </div>
-  </form>
+  <div name="loginForm" ng-submit="$ctrl.sendLogin()" class="input-group">
+      <input title="name" ng-model="login.name" type="text" placeholder="Name" class="form-control"/>
+      <input title="pin" ng-model="login.pin" type="password" placeholder="PIN" class="form-control"/>
+  </div>
+  <button class="btn btn-primary" ng-click="$ctrl.sendLogin()">Login</button>
 </div>
+<script>
+  console.log("login page has been rendered")
+</script>
