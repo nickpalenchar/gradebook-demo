@@ -8,6 +8,9 @@ class NavbarController {
   }, {
     'title': 'Login',
     'state': 'login',
+  }, {
+    'title': 'Dashboard',
+    'state' : 'admin',
   }];
 
   isCollapsed = true;
